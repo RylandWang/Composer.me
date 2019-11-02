@@ -1,7 +1,7 @@
 const Application = function() {
   this.tuner = new Tuner()
   this.notes = new Notes('.notes', this.tuner)
-  this.frequencyBars = new FrequencyBars('.frequency-bars')
+//   this.frequencyBars = new FrequencyBars('.frequency-bars')
   this.update({ name: 'A', frequency: 440, octave: 4, value: 69, cents: 0 })
 }
 
