@@ -78,7 +78,7 @@ Notes.prototype.update = function(note) {
     ).toFixed(1)
 
     const updateYPosition = note.value.toString() + "%";
-    $("#dot").css("margin-top", updateYPosition);
+    document.getElementById("dot").style.marginTop= updateYPosition;
   }
 }
 
