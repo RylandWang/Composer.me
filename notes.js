@@ -1,4 +1,4 @@
-const notesPlayed = []
+var notesPlayed = []
 
 const Notes = function (selector, tuner) {
   this.tuner = tuner
