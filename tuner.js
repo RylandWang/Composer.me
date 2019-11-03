@@ -17,6 +17,21 @@ const Tuner = function() {
     'B'
   ]
 
+  this.noteToPosition = {
+    'C':2,
+    'C♯':4,
+    'D':6,
+    'D♯':8,
+    'E':10,
+    'F':12,
+    'F♯':30,
+    'G':32,
+    'G♯':34,
+    'A':36,
+    'A♯':38,
+    'B':40
+  }
+
   this.notesPlayed = []
 
   this.initGetUserMedia()

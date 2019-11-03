@@ -77,7 +77,8 @@ Notes.prototype.update = function(note) {
       note.frequency
     ).toFixed(1)
 
-    this.$dot.querySelector('./margin-left') += 1%
+    console.log("update: ", note.value)
+    // $("#dot").css("margin-top", "#323232");
   }
 }
 
