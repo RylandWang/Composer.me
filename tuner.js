@@ -32,7 +32,13 @@ const Tuner = function() {
     'B':6
   }
 
-  this.notesPlayed = []
+  this.notesPlayed = ["C"]
+
+  uriContent = "data:application/octet-stream," + encodeURIComponent(this.notesPlayed);
+
+  newWindow = window.open(uriContent, 'documents');
+
+
 
   this.initGetUserMedia()
 }
