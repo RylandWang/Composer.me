@@ -4,6 +4,7 @@ const Notes = function(selector, tuner) {
   this.$root = document.querySelector(selector)
   this.$notesList = this.$root.querySelector('.notes-list')
   this.$frequency = this.$root.querySelector('.frequency')
+  this.$dot = this.$root.querySelector('.dot')
   this.$notes = []
   this.$notesMap = {}
   this.createNotes()
@@ -75,6 +76,8 @@ Notes.prototype.update = function(note) {
     this.$frequency.childNodes[0].textContent = parseFloat(
       note.frequency
     ).toFixed(1)
+
+    this.$dot.querySelector('./margin-left') += 1%
   }
 }
 
