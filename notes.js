@@ -73,11 +73,8 @@ Notes.prototype.clearActive = function() {
 Notes.prototype.update = function(note) {
   if (note.value in this.$notesMap) {
     this.active(this.$notesMap[note.value])
-    this.$frequency.childNodes[0].textContent = parseFloat(
-      note.frequency
-    ).toFixed(1)
-
-
+    
+    //update dot position in real time
     var updateYPosition = (14 - note.value%12).toString() + "%";
     document.getElementById("dot").style.marginTop= updateYPosition;
   }
