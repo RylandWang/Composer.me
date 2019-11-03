@@ -41,7 +41,7 @@ body {
   width: 400px;
   position: absolute;
   top: 50%;
-  left: 25%;
+  left: 30%;
   right: 0;
   text-align: center;
 }
@@ -112,7 +112,7 @@ body {
 
 .meter {
   position: absolute;
-  left: 25%;
+  left: 30%;
   right: 0;
   bottom: 50%;
   width: 400px;

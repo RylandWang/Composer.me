@@ -118,9 +118,9 @@ Notes.prototype.update = function (note) {
     document.getElementById("dot2").style.marginTop = prevYPosition;
     prevNoteCache = prevNoteValue
     prevNoteValue = note.value;
-  
 
-      //----previous note 2----
+
+    //----previous note 2----
     // if bass cleft
     var offset = 34.2
     // if trebble cleft
@@ -130,15 +130,15 @@ Notes.prototype.update = function (note) {
     var prevYPosition = (offset - cleftMapping[prev2NoteValue % 12]).toString() + "%";
     document.getElementById("dot3").style.marginTop = prevYPosition;
     prev2NoteValue = prevNoteCache;
-  
-}
 
-Notes.prototype.toggleAutoMode = function () {
-  if (this.isAutoMode) {
-    this.clearActive()
   }
-  this.isAutoMode = !this.isAutoMode
-}
+
+  Notes.prototype.toggleAutoMode = function () {
+    if (this.isAutoMode) {
+      this.clearActive()
+    }
+    this.isAutoMode = !this.isAutoMode
+  }
 }
 
 
@@ -151,39 +151,45 @@ function finishRecording() {
   // newWindow = window.open(uriContent, 'masterpiece.txt');
 
   download(notesPlayed, "masterpiece.txt", "txt")
+
+  //reset cache
+  notesPlayed = []
+  prevNoteValue = 0;
+  prev2NoteValue = 0;
+
 }
 
 function download(strData, strFileName, strMimeType) {
   var D = document,
-      a = D.createElement("a");
-      strMimeType= strMimeType || "application/octet-stream";
+    a = D.createElement("a");
+  strMimeType = strMimeType || "application/octet-stream";
 
 
   if (navigator.msSaveBlob) { // IE10
-      return navigator.msSaveBlob(new Blob([strData], {type: strMimeType}), strFileName);
+    return navigator.msSaveBlob(new Blob([strData], { type: strMimeType }), strFileName);
   } /* end if(navigator.msSaveBlob) */
 
 
   if ('download' in a) { //html5 A[download]
-      a.href = "data:" + strMimeType + "," + encodeURIComponent(strData);
-      a.setAttribute("download", strFileName);
-      a.innerHTML = "downloading...";
-      D.body.appendChild(a);
-      setTimeout(function() {
-          a.click();
-          D.body.removeChild(a);
-      }, 66);
-      return true;
+    a.href = "data:" + strMimeType + "," + encodeURIComponent(strData);
+    a.setAttribute("download", strFileName);
+    a.innerHTML = "downloading...";
+    D.body.appendChild(a);
+    setTimeout(function () {
+      a.click();
+      D.body.removeChild(a);
+    }, 66);
+    return true;
   } /* end if('download' in a) */
 
 
   //do iframe dataURL download (old ch+FF):
   var f = D.createElement("iframe");
   D.body.appendChild(f);
-  f.src = "data:" +  strMimeType   + "," + encodeURIComponent(strData);
+  f.src = "data:" + strMimeType + "," + encodeURIComponent(strData);
 
-  setTimeout(function() {
-      D.body.removeChild(f);
+  setTimeout(function () {
+    D.body.removeChild(f);
   }, 333);
   return true;
 } /* end download() */
