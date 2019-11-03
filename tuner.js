@@ -1,5 +1,3 @@
-var notesPlayed = []
-
 const Tuner = function () {
   this.middleA = 440
   this.semitone = 69
@@ -178,12 +176,4 @@ Tuner.prototype.play = function (frequency) {
 Tuner.prototype.stop = function () {
   this.oscillator.stop()
   this.oscillator = null
-}
-
-function finishRecording() {
-  // console.log(notesPlayed)
-  var outputString = ""
-
-  uriContent = "data:application/octet-stream," + encodeURIComponent(notesPlayed);
-  newWindow = window.open(uriContent, 'masterpiece.txt');
 }
