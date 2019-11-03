@@ -113,7 +113,9 @@ Tuner.prototype.init = function() {
  * @returns {number}
  */
 Tuner.prototype.getNote = function(frequency) {
+  
   const note = 12 * (Math.log(frequency / this.middleA) / Math.log(2))
+  console.log("getnote, ", note)
   return Math.round(note) + this.semitone
 }
 
@@ -124,6 +126,7 @@ Tuner.prototype.getNote = function(frequency) {
  * @returns {number}
  */
 Tuner.prototype.getStandardFrequency = function(note) {
+  console.log("getstandardfreq ", note)
   return this.middleA * Math.pow(2, (note - this.semitone) / 12)
 }
 
@@ -135,6 +138,7 @@ Tuner.prototype.getStandardFrequency = function(note) {
  * @returns {number}
  */
 Tuner.prototype.getCents = function(frequency, note) {
+  console.log("cents: ", note)
   return Math.floor(
     (1200 * Math.log(frequency / this.getStandardFrequency(note))) / Math.log(2)
   )
@@ -146,6 +150,7 @@ Tuner.prototype.getCents = function(frequency, note) {
  * @param {number} frequency
  */
 Tuner.prototype.play = function(frequency) {
+  console.log("play", frequency)
   if (!this.oscillator) {
     this.oscillator = this.audioContext.createOscillator()
     this.oscillator.connect(this.audioContext.destination)
