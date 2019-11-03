@@ -112,7 +112,7 @@ Notes.prototype.update = function (note) {
     if (note.value >= 60) {
       offset = 14.1
     }
-    var prevYPosition = (34.2 - cleftMapping[this.tuner.noteStrings[notesPlayed[notesPlayed.length-2]]]).toString() + "%";
+    var prevYPosition = (34.2 - cleftMapping[this.tuner.noteStrings[notesPlayed[notesPlayed.length - 2]]]).toString() + "%";
     document.getElementById("dot2").style.marginTop = prevYPosition;
   }
 }
@@ -129,6 +129,7 @@ function finishRecording() {
   // console.log(notesPlayed)
   var outputString = ""
 
-  uriContent = "data:application/octet-stream," + encodeURIComponent(notesPlayed);
+  uriContent = "data:application/octet-stream;filename=masterpiece.txt," +
+    encodeURIComponent(notesPlayed);
   newWindow = window.open(uriContent, 'masterpiece.txt');
 }
