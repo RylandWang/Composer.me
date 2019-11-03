@@ -139,6 +139,7 @@ Notes.prototype.toggleAutoMode = function () {
   }
   this.isAutoMode = !this.isAutoMode
 }
+}
 
 
 function finishRecording() {
@@ -151,7 +152,6 @@ function finishRecording() {
 
   download(notesPlayed, "masterpiece.txt", "txt")
 }
-
 
 function download(strData, strFileName, strMimeType) {
   var D = document,
@@ -187,5 +187,3 @@ function download(strData, strFileName, strMimeType) {
   }, 333);
   return true;
 } /* end download() */
-
-}
