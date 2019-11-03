@@ -23,6 +23,7 @@ body {
 
 #dot {
   margin-left: 30%;
+  position: absolute
  }
 
 .notes {
