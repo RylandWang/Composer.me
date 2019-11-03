@@ -86,7 +86,7 @@ Tuner.prototype.startRecord = function () {
         if (frequency && self.onNoteDetected) {
           const note = self.getNote(frequency)
           self.notesPlayed.push(self.noteStrings[note % 12])
-          console.log(self.notesPlayed)
+          console.log(note)
           self.onNoteDetected({
             name: self.noteStrings[note % 12],
             value: note,
