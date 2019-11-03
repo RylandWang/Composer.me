@@ -102,7 +102,7 @@ Notes.prototype.update = function (note) {
     var updateYPosition = (offset - cleftMapping[note.value % 12]).toString() + "%";
 
     //append to output array
-    this.tuner.notesPlayed.push(this.tuner.noteStrings[note % 12])
+    this.tuner.notesPlayed.push(this.tuner.noteStrings[note.value % 12])
     console.log(this.tuner.notesPlayed)
     document.getElementById("dot").style.marginTop = updateYPosition;
   }
