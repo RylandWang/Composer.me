@@ -76,18 +76,18 @@ Notes.prototype.update = function(note) {
     
     //account for half notes
     const wholeNoteMapping = {
-      0:1,
-      1:1, //c#
-      2:2,
-      3:2, //d#
-      4:3,
-      5:4,
-      6:4, //f#
-      7:5,
-      8:5, //g#
-      9:6,
-      10:6, //a#
-      11:7
+      0:0,
+      1:0, //c#
+      2:1,
+      3:1, //d#
+      4:2,
+      5:3,
+      6:3, //f#
+      7:4,
+      8:4, //g#
+      9:5,
+      10:5, //a#
+      11:6
     }
     //update dot position in real time
     var updateYPosition = (14 - wholeNoteMapping[note.value%12]).toString() + "%";
