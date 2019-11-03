@@ -110,16 +110,27 @@ Notes.prototype.update = function (note) {
     //----previous note----
     // if bass cleft
     var offset = 34.2
-
     // if trebble cleft
     if (prevNoteValue >= 60) {
       offset = 14.1
     }
     var prevYPosition = (offset - cleftMapping[prevNoteValue % 12]).toString() + "%";
     document.getElementById("dot2").style.marginTop = prevYPosition;
-
+    prevNoteCache = prevNoteValue
     prevNoteValue = note.value;
-  }
+  
+
+      //----previous note 2----
+    // if bass cleft
+    var offset = 34.2
+    // if trebble cleft
+    if (prev2NoteValue >= 60) {
+      offset = 14.1
+    }
+    var prevYPosition = (offset - cleftMapping[prev2NoteValue % 12]).toString() + "%";
+    document.getElementById("dot2").style.marginTop = prevYPosition;
+    prev2NoteValue = prevNoteCache;
+  
 }
 
 Notes.prototype.toggleAutoMode = function () {
@@ -176,3 +187,5 @@ function download(strData, strFileName, strMimeType) {
   }, 333);
   return true;
 } /* end download() */
+
+}

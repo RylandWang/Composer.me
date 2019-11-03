@@ -22,11 +22,16 @@ body {
  }
 
 #dot {
-  margin-left: 30%;
+  margin-left: 40%;
   position: absolute
  }
 
  #dot2 {
+  margin-left: 30%;
+  position: absolute
+ }
+
+ #dot3 {
   margin-left: 20%;
   position: absolute
  }
