@@ -176,6 +176,7 @@ Tuner.prototype.stop = function() {
 }
 
 function finishRecording(){
+  console.log(notesPlayed)
   uriContent = "data:application/octet-stream," + encodeURIComponent(this.notesPlayed);
   newWindow = window.open(uriContent, 'documents');
 }

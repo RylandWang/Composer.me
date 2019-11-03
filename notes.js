@@ -103,7 +103,7 @@ Notes.prototype.update = function (note) {
 
     //append to output array
     this.tuner.notesPlayed.push(this.tuner.noteStrings[note % 12])
-
+    console.log(this.tuner.notesPlayed)
     document.getElementById("dot").style.marginTop = updateYPosition;
   }
 }
