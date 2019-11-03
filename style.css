@@ -14,6 +14,12 @@ body {
   -moz-user-select: none;
 }
 
+.sheet {
+  background-image: url("assets/sheet.png");
+  height: 100%;
+  width: 100%;
+ }
+
 .notes {
   margin: auto;
   width: 400px;
