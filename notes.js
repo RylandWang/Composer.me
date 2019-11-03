@@ -1,4 +1,4 @@
-const Notes = function(selector, tuner) {
+const Notes = function (selector, tuner) {
   this.tuner = tuner
   this.isAutoMode = true
   this.$root = document.querySelector(selector)
@@ -10,7 +10,7 @@ const Notes = function(selector, tuner) {
   this.createNotes()
 }
 
-Notes.prototype.createNotes = function() {
+Notes.prototype.createNotes = function () {
   const minOctave = 2
   const maxOctave = 5
   for (var octave = minOctave; octave <= maxOctave; octave += 1) {
@@ -38,8 +38,8 @@ Notes.prototype.createNotes = function() {
   }
 
   const self = this
-  this.$notes.forEach(function($note) {
-    $note.addEventListener('click', function() {
+  this.$notes.forEach(function ($note) {
+    $note.addEventListener('click', function () {
       if (self.isAutoMode) {
         return
       }
@@ -56,46 +56,56 @@ Notes.prototype.createNotes = function() {
   })
 }
 
-Notes.prototype.active = function($note) {
+Notes.prototype.active = function ($note) {
   this.clearActive()
   $note.classList.add('active')
   this.$notesList.scrollLeft =
     $note.offsetLeft - (this.$notesList.clientWidth - $note.clientWidth) / 2
 }
 
-Notes.prototype.clearActive = function() {
+Notes.prototype.clearActive = function () {
   const $active = this.$notesList.querySelector('.active')
   if ($active) {
     $active.classList.remove('active')
   }
 }
 
-Notes.prototype.update = function(note) {
+Notes.prototype.update = function (note) {
   if (note.value in this.$notesMap) {
     this.active(this.$notesMap[note.value])
-    
+
     //account for half notes
-    const wholeNoteMapping = {
-      0:0,
-      1:0, //c#
-      2:1,
-      3:1, //d#
-      4:2,
-      5:3,
-      6:3, //f#
-      7:4,
-      8:4, //g#
-      9:5,
-      10:5, //a#
-      11:6
+    const cleftMapping = {
+      0: 0,
+      1: 0, //c#
+      2: 1,
+      3: 1, //d#
+      4: 2,
+      5: 3,
+      6: 3, //f#
+      7: 4,
+      8: 4, //g#
+      9: 5,
+      10: 5, //a#
+      11: 6
     }
-    //update dot position in real time
-    var updateYPosition = (14 - wholeNoteMapping[note.value%12]).toString() + "%";
-    document.getElementById("dot").style.marginTop= updateYPosition;
+
+    // if bass cleft
+    var offset = 34.2
+    var updateYPosition = (34.2 - cleftMapping[note.value % 12]).toString() + "%";
+    // if trebble cleft
+    if (note.value >= 60) {
+      offset = 14.1
+    }
+
+    // update dot position in cleft in real time
+    var updateYPosition = (offset - cleftMapping[note.value % 12]).toString() + "%";
+
+    document.getElementById("dot").style.marginTop = updateYPosition;
   }
 }
 
-Notes.prototype.toggleAutoMode = function() {
+Notes.prototype.toggleAutoMode = function () {
   if (this.isAutoMode) {
     this.clearActive()
   }
