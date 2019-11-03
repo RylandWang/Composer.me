@@ -5,6 +5,7 @@ var prev2NoteValue = 0;
 const Notes = function (selector, tuner) {
   this.tuner = tuner
   this.isAutoMode = true
+  this.octave = 2
   this.$root = document.querySelector(selector)
   this.$notesList = this.$root.querySelector('.notes-list')
   this.$frequency = this.$root.querySelector('.frequency')
@@ -104,7 +105,7 @@ Notes.prototype.update = function (note) {
     // update dot position in cleft in real time
     var updateYPosition = (offset - cleftMapping[note.value % 12]).toString() + "%";
     //append to output array
-    notesPlayed.push(this.tuner.noteStrings[note.value % 12])
+    notesPlayed.push(this.tuner.noteStrings[note.value % 12] + "-" + note.octave);
     document.getElementById("dot").style.marginTop = updateYPosition;
 
     //----previous note----
