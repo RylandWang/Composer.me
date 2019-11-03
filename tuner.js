@@ -1,4 +1,4 @@
-var notesPlayed = ['a']
+var notesPlayed = []
 
 const Tuner = function () {
   this.middleA = 440
@@ -34,7 +34,7 @@ const Tuner = function () {
     'B': 6
   }
 
-  this.notesPlayed = ['a', 'b']
+  this.notesPlayed = []
   this.initGetUserMedia()
 }
 
