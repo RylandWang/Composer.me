@@ -48,6 +48,11 @@ body {
   color: #e74c3c;
 }
 
+.misc{
+  margin-top: 29%;
+  margin-left: 40%
+}
+
 .notes-list {
   overflow: auto;
   overflow: -moz-scrollbars-none;

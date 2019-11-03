@@ -101,6 +101,9 @@ Notes.prototype.update = function (note) {
     // update dot position in cleft in real time
     var updateYPosition = (offset - cleftMapping[note.value % 12]).toString() + "%";
 
+    //append to output array
+    this.tuner.notesPlayed.push(this.tuner.noteStrings[note % 12])
+
     document.getElementById("dot").style.marginTop = updateYPosition;
   }
 }

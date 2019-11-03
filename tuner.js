@@ -32,14 +32,7 @@ const Tuner = function() {
     'B':6
   }
 
-  this.notesPlayed = ["C"]
-
-  uriContent = "data:application/octet-stream," + encodeURIComponent(this.notesPlayed);
-
-  newWindow = window.open(uriContent, 'documents');
-
-
-
+  this.notesPlayed = []
   this.initGetUserMedia()
 }
 
@@ -91,7 +84,7 @@ Tuner.prototype.startRecord = function () {
         )
         if (frequency && self.onNoteDetected) {
           const note = self.getNote(frequency)
-          self.notesPlayed.push(self.noteStrings[note % 12])
+
           self.onNoteDetected({
             name: self.noteStrings[note % 12],
             value: note,
@@ -180,4 +173,9 @@ Tuner.prototype.play = function(frequency) {
 Tuner.prototype.stop = function() {
   this.oscillator.stop()
   this.oscillator = null
+}
+
+function finishRecording(){
+  uriContent = "data:application/octet-stream," + encodeURIComponent(this.notesPlayed);
+  newWindow = window.open(uriContent, 'documents');
 }
