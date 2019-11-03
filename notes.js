@@ -77,7 +77,8 @@ Notes.prototype.update = function(note) {
       note.frequency
     ).toFixed(1)
 
-    const updateYPosition = (50- Math.abs(note.value/20)).toString() + "%";
+
+    var updateYPosition = (14 - note.value%12).toString() + "%";
     document.getElementById("dot").style.marginTop= updateYPosition;
   }
 }
