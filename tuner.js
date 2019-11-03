@@ -18,18 +18,18 @@ const Tuner = function() {
   ]
 
   this.noteToPosition = {
-    'C':2,
-    'C♯':4,
-    'D':6,
-    'D♯':8,
-    'E':10,
-    'F':12,
-    'F♯':30,
-    'G':32,
-    'G♯':34,
-    'A':36,
-    'A♯':38,
-    'B':40
+    'C':0,
+    'C#':0,
+    'D':1,
+    'D#':1,
+    'E':2,
+    'F':3,
+    'F#':3,
+    'G':4,
+    'G#':4,
+    'A':5,
+    'A#':5,
+    'B':6
   }
 
   this.notesPlayed = []
@@ -86,7 +86,6 @@ Tuner.prototype.startRecord = function () {
         if (frequency && self.onNoteDetected) {
           const note = self.getNote(frequency)
           self.notesPlayed.push(self.noteStrings[note % 12])
-          console.log(note)
           self.onNoteDetected({
             name: self.noteStrings[note % 12],
             value: note,

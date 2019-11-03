@@ -74,8 +74,23 @@ Notes.prototype.update = function(note) {
   if (note.value in this.$notesMap) {
     this.active(this.$notesMap[note.value])
     
+    //account for half notes
+    const wholeNoteMapping = {
+      1:1,
+      2:1,
+      3:2,
+      4:2,
+      5:3,
+      6:4,
+      7:4,
+      8:5,
+      9:5,
+      10:6,
+      11:6,
+      12:7
+    }
     //update dot position in real time
-    var updateYPosition = (14 - note.value%12).toString() + "%";
+    var updateYPosition = (14 - wholeNoteMapping[note.value%12]).toString() + "%";
     document.getElementById("dot").style.marginTop= updateYPosition;
   }
 }
