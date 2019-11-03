@@ -1,4 +1,6 @@
 const notesPlayed = []
+var prevNoteValue = 0;
+var prev2NoteValue = 0;
 
 const Notes = function (selector, tuner) {
   this.tuner = tuner
@@ -110,11 +112,13 @@ Notes.prototype.update = function (note) {
     var offset = 34.2
 
     // if trebble cleft
-    if (note.value >= 60) {
+    if (prevNoteValue >= 60) {
       offset = 14.1
     }
-    var prevYPosition = (34.2 - cleftMapping[this.tuner.noteStrings[notesPlayed[notesPlayed.length - 2]]]).toString() + "%";
+    var prevYPosition = (offset - cleftMapping[prevNoteValue % 12]).toString() + "%";
     document.getElementById("dot2").style.marginTop = prevYPosition;
+
+    prevNoteValue = note.value;
   }
 }
 
@@ -136,6 +140,7 @@ function finishRecording() {
 
   download(notesPlayed, "masterpiece.txt", "txt")
 }
+
 
 function download(strData, strFileName, strMimeType) {
   var D = document,
