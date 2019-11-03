@@ -146,11 +146,9 @@ function finishRecording() {
   // console.log(notesPlayed)
   var outputString = ""
 
-  // uriContent = "data:application/octet-stream;filename=masterpiece.txt," +
-  //   encodeURIComponent(notesPlayed);
-  // newWindow = window.open(uriContent, 'masterpiece.txt');
-
-  download(notesPlayed, "masterpiece.txt", "txt")
+  if (confirm("Do you wish to download the generated sheet music for this session?")){
+    download(notesPlayed, "masterpiece.txt", "txt")
+  }
 
   //reset cache
   notesPlayed = []
