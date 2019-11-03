@@ -151,3 +151,11 @@ body {
 .swal-button {
   background: #2c3e50;
 }
+
+.tempo{
+  position: absolute;
+  margin-left: 200px;
+
+  font-size: 85px;
+  color:black;
+}
