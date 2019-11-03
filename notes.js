@@ -77,8 +77,8 @@ Notes.prototype.update = function(note) {
       note.frequency
     ).toFixed(1)
 
-    console.log("update: ", this.$notesMap[note.value])
-    // $("#dot").css("margin-top", "#323232");
+    const updateYPosition = node.value.toString() + "%";
+    $("#dot").css("margin-top", updateYPosition);
   }
 }
 
