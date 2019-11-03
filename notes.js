@@ -1,3 +1,5 @@
+const notesPlayed = []
+
 const Notes = function (selector, tuner) {
   this.tuner = tuner
   this.isAutoMode = true
@@ -92,7 +94,6 @@ Notes.prototype.update = function (note) {
 
     // if bass cleft
     var offset = 34.2
-    var updateYPosition = (34.2 - cleftMapping[note.value % 12]).toString() + "%";
     // if trebble cleft
     if (note.value >= 60) {
       offset = 14.1
@@ -100,18 +101,18 @@ Notes.prototype.update = function (note) {
     // update dot position in cleft in real time
     var updateYPosition = (offset - cleftMapping[note.value % 12]).toString() + "%";
     //append to output array
-    this.tuner.notesPlayed.push(this.tuner.noteStrings[note.value % 12])
+    notesPlayed.push(this.tuner.noteStrings[note.value % 12])
     document.getElementById("dot").style.marginTop = updateYPosition;
 
 
     // if bass cleft
     var offset = 34.2
-    var updateYPosition = (34.2 - cleftMapping[this.tuner.noteStrings[this.tuner.notesPlayed[this.tuner.notesPlayed.length-2]]]).toString() + "%";
+
     // if trebble cleft
     if (note.value >= 60) {
       offset = 14.1
     }
-    var prevYPosition = (offset - cleftMapping[note.value % 12]).toString() + "%";
+    var prevYPosition = (34.2 - cleftMapping[this.tuner.noteStrings[notesPlayed[notesPlayed.length-2]]]).toString() + "%";
     document.getElementById("dot2").style.marginTop = prevYPosition;
   }
 }
@@ -121,4 +122,13 @@ Notes.prototype.toggleAutoMode = function () {
     this.clearActive()
   }
   this.isAutoMode = !this.isAutoMode
+}
+
+
+function finishRecording() {
+  // console.log(notesPlayed)
+  var outputString = ""
+
+  uriContent = "data:application/octet-stream," + encodeURIComponent(notesPlayed);
+  newWindow = window.open(uriContent, 'masterpiece.txt');
 }
