@@ -50,7 +50,8 @@ body {
 
 .misc{
   margin-top: 29%;
-  margin-left: 50%
+  margin-left: 50%;
+  position: absolute
 }
 
 .notes-list {
