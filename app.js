@@ -18,9 +18,12 @@ Application.prototype.start = function () {
       }
     }
   }
-  
-  self.tuner.init()
-  self.frequencyData = new Uint8Array(self.tuner.analyser.frequencyBinCount)
+
+  swal('Welcome to Composer.Me! This application automatically generates sheet notes based on music you play in real time. Please ensure you are in a quiet environment with a working microphone.').then(function () {
+    self.tuner.init()
+    self.frequencyData = new Uint8Array(self.tuner.analyser.frequencyBinCount)
+  })
+
 
   if (!/Android/i.test(navigator.userAgent)) {
     this.updateFrequencyBars()
