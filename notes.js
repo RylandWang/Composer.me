@@ -77,7 +77,7 @@ Notes.prototype.update = function(note) {
       note.frequency
     ).toFixed(1)
 
-    const updateYPosition = node.value.toString() + "%";
+    const updateYPosition = note.value.toString() + "%";
     $("#dot").css("margin-top", updateYPosition);
   }
 }
