@@ -132,7 +132,6 @@ Tuner.prototype.getNote = function (frequency) {
   const note = 12 * (Math.log(frequency / this.middleA) / Math.log(2))
 
   //update output array
-  notesPlayed = this.notesPlayed
   return Math.round(note) + this.semitone
 }
 

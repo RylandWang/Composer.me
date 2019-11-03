@@ -1,4 +1,4 @@
-var notesPlayed = []
+const notesPlayed = []
 
 const Notes = function (selector, tuner) {
   this.tuner = tuner
@@ -92,6 +92,7 @@ Notes.prototype.update = function (note) {
       11: 6
     }
 
+    // ---current note---
     // if bass cleft
     var offset = 34.2
     // if trebble cleft
@@ -104,7 +105,7 @@ Notes.prototype.update = function (note) {
     notesPlayed.push(this.tuner.noteStrings[note.value % 12])
     document.getElementById("dot").style.marginTop = updateYPosition;
 
-
+    //----previous note----
     // if bass cleft
     var offset = 34.2
 
