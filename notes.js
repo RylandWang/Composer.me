@@ -128,7 +128,7 @@ Notes.prototype.update = function (note) {
       offset = 14.1
     }
     var prevYPosition = (offset - cleftMapping[prev2NoteValue % 12]).toString() + "%";
-    document.getElementById("dot2").style.marginTop = prevYPosition;
+    document.getElementById("dot3").style.marginTop = prevYPosition;
     prev2NoteValue = prevNoteCache;
   
 }
